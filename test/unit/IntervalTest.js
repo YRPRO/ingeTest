@@ -1,4 +1,4 @@
-/*describe("Interval - overlapping", function () {
+describe("Interval - overlapping", function () {
     testedInterval = new Interval(10, 20);
 
     [
@@ -23,4 +23,16 @@
             expect(testedInterval.overlaps(interval)).toBeFalsy();
         });
     });
-});*/
+});
+
+
+/**
+ * TEST
+ * Retourne true si cet interval inclu le parametre interval
+ * @param {Interval} interval
+ * @returns {boolean}
+ * Interval.prototype.includes
+ */
+describe("Interval - includes",function(){
+    
+});
