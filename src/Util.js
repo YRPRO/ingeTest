@@ -90,18 +90,43 @@ Util.sumPrime = function(n) {
  * @returns {array}
  */
 Util.fizzBuzz = function(n) {
+	var fizz = "Fizz";
+	var buzz = "Buzz";
+	var fizzBuzz = "FizzBuzz";
 
+	var res = [];
+
+	for(i = 1;i<=n;i++){
+		if((i % 3 == 0) && (i % 5 == 0))
+			res.push(fizzBuzz);
+		else if(i % 3 == 0)
+			res.push(fizz);
+		else if(i % 5 == 0)
+			res.push(buzz);
+		else
+			res.push(i);
+	}
+	return res;
 };
 
 /**
  * Chiffre une phrase selon la règle suivante : Les A deviennent des B, les B des C, etc.
  *
  * Exp :
- * Util.cipher("Test Unitaire") => "Uftu Tojubjsf"
+ * Util.cipher("Test Unitaire") => "Uftu Vojubjsf"
  *
  * @param phrase
  * @returns {string}
  */
 Util.cipher = function (phrase) {
+	var res = "";
+	for(i = 0 ; i<phrase.length;i++){
+			if(phrase[i] == " ")
+				res += " ";
+			else
+			 	res += String.fromCharCode(phrase[i].charCodeAt(0) + 1);
+		}
+
+return res;
 
 };
