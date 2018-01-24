@@ -59,7 +59,18 @@ Interval.prototype.intersection = function (interval) {
  * @returns {Interval[]}
  */
 Interval.prototype.exclusion = function (interval) {
+	if(this.intersection(interval) == null)
+		return [this,interval];
 
+	// if overlaps des 2 cotes 
+	if(this.overlaps(interval))
+		return [new Interval(this.start,interval.start),new Interval(this.end,interval.end)];
+	if(interval.overlaps(this))
+		return [new Interval(interval.start,this.start),new Interval(interval.end,this.end)];
+
+	// if include 
+	if(this.include(interval))
+		return [new Interval(this.start,interval.start),new Interval(interval.end,this.end)];
 };
 
 

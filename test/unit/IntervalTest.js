@@ -99,5 +99,33 @@ describe("Interval - intersection",function(){
 
     });
 
+});
+
+
+/**
+ *TEST
+ * Retourne l'exclusion de deux intervals
+ * @param {Interval} interval
+ * @returns {Interval[]}
+ *Interval.prototype.exclusion
+ */
+
+
+ describe("Interval - exclude",function(){
+    it("interval 1-10 N 8-15 should be equal to [1,7:11,15]",function(){
+        var i1 = new Interval(1,10);
+        var i2 = new Interval(8,15);
+        var res = i1.exclusion(i2);
+        expect(res).toEqual([new Interval(1,8),new Interval(10,15)]);
+
+    });
+
+    it("interval 1-10 N 15-20 should be equal to [1,10:15,19.9]",function(){
+        var i1 = new Interval(1,10);
+        var i2 = new Interval(15,20);
+        var res = i1.exclusion(i2);
+        expect(res).toEqual([i1,i2]);
+
+    });
 
 });
