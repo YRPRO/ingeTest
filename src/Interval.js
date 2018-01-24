@@ -31,7 +31,12 @@ Interval.prototype.includes = function (interval) {
  * @param {Interval} interval
  * @returns {Interval[]}
  */
-Interval.prototype.union = function (interval) {
+Interval.prototype.union = function (interval) {	
+	if(this.overlaps(interval))
+		return new Interval(this.start,interval.end);
+	if(interval.overlaps(this))
+		return new Interval(interval.start,this.end);
+
 	return [this,interval];
 };
 
