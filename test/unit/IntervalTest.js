@@ -73,3 +73,31 @@ describe("Interval - union",function(){
 
     });
 });
+
+/**
+ *TEST
+ * Retourne l'intersection de deux intervals
+ * @param {Interval} interval
+ * @returns {Interval|null}
+ * Interval.prototype.intersection
+ */
+
+describe("Interval - intersection",function(){
+    it("interval 1-10 N 8-15 should be equal to Interval(8,10)",function(){
+        var i1 = new Interval(1,10);
+        var i2 = new Interval(8,15);
+        var res = i1.intersection(i2);
+        expect(res).toEqual(new Interval(8,10));
+
+    });
+
+    it("interval 20-50 N 100-150 should be equal to null",function(){
+        var i1 = new Interval(20,50);
+        var i2 = new Interval(100,150);
+        var res = i1.intersection(i2);
+        expect(res).toBe(null);
+
+    });
+
+
+});
