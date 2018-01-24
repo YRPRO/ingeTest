@@ -49,6 +49,7 @@ describe("Interval - includes",function(){
 });
 
 /**
+ * TEST
  * Retourne l'union de deux intervals
  * @param {Interval} interval
  * @returns {Interval[]}
@@ -56,11 +57,19 @@ describe("Interval - includes",function(){
  */
 
 describe("Interval - union",function(){
-    it("interval 2-5 U 0-10 should be equal to [i1,i2]",function(){
-        var i1 = new Interval(0,10);
-        var i2 = new Interval(2,5);
+    it("interval 1-10 U 8-15 should be equal to Interval(1,15)",function(){
+        var i1 = new Interval(1,10);
+        var i2 = new Interval(8,15);
+        var res = i1.union(i2);
+        expect(res).toEqual(new Interval(1,15));
+
+    });
+
+    it("interval 1-10 U 20-30 should be equal to Interval[(1,10;20,30)]",function(){
+        var i1 = new Interval(1,10);
+        var i2 = new Interval(20,30);
         var res = i1.union(i2);
         expect(res).toEqual([i1,i2]);
+
     });
-     
 });
